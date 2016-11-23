@@ -12,33 +12,32 @@ var GreeterMessage = React.createClass({
 });
 
 var GreeterForm = React.createClass({
-  updated : {name:'React',message:'This is a default message'},
   onFormSubmit: function(e) {
     e.preventDefault();
 
-    var name = this.refs.name.value || this.updated.name;
-    var message = this.refs.message.value || this.updated.message;
+    var name = this.refs.name.value;
+    var message = this.refs.message.value;
 
-    this.updated = {
-      name: name,
-      message: message
-    };
+    var updated = {};
+    if( name.length > 0 ) {
+      this.refs.name.value = '';
+      updated.name = name;
+    }
 
-    this.refs.name.value = ''; // this will clear the field
-    this.refs.message.value = '';
-    console.log( this.updated );
-    console.log( name + '_' +  message );
-    this.props.onUpdate(this.updated);
+    if( message.length > 0 ) {
+      this.refs.message.value = '';
+      updated.message = message;
+    }
+
+    this.props.onUpdate(updated);
 
   },
 
   render: function() {
     return (
       <form onSubmit={this.onFormSubmit}>
-        <input type="text" ref="name"/>
-        <br/>
-        <textarea ref="message"/>
-        <br/>
+        <input type="text" ref="name" placeholder="Enter name"/>
+        <textarea ref="message" placeholder="Enter message"></textarea>
         <button>Set Name</button>
       </form>
     );
