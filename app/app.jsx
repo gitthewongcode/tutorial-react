@@ -1,8 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Greeter = require('Greeter');
 
 ReactDOM.render(
-  <Greeter />,
+  <h1>Boilerplate app!</h1>,
   document.getElementById('app')
 );
