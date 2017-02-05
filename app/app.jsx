@@ -1,19 +1,18 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-var objOne = {
-  name: 'Steve',
-  location: 'Virginia'
-};
+// same as (object destructoring)
+// var Route = require('react-router').Route;
+// each name inside {}
+var {Route, Router, IndexRoute, hashHistory} = require('react-router');
 
-var objTwo = {
-  age: 34,
-  ...objOne
-};
-
-console.log(objTwo);
+var Main = require('Main');
 
 ReactDOM.render(
-  <h1>boilerplate</h1>,
+  <Router history={hashHistory}>
+    <Route path="/" component={Main}>
+
+    </Route>
+  </Router>,
   document.getElementById('app')
 );
