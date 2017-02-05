@@ -1,7 +1,7 @@
 // exports an object, and that object lets you configure what webpack does
 module.exports = {
   // #entry: tells webpack where to start processing code
-  entry: './public/app.jsx',
+  entry: './app/app.jsx',
 
   // #output: tells webpack where to output to
   output: {
@@ -12,9 +12,6 @@ module.exports = {
   resolve: {
     root: __dirname,
     alias: {
-      Greeter: 'public/components/Greeter.jsx',
-      GreeterMessage: 'public/components/GreeterMessage.jsx',
-      GreeterForm: 'public/components/GreeterForm.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },
